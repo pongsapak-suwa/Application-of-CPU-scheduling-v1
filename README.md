@@ -1,5 +1,5 @@
 # Application-of-CPU-scheduling-v1
-Application of CPU scheduling 
+Application of CPU scheduling \n
 ------  Non-preemptive Longest Job First
 ========================== Comput ================================
  =>CPU utilization,
