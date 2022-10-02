@@ -1,15 +1,15 @@
 #if no module named 'pandas' you scanf "pip install pandas" in terminal
 import pandas as pd
-#Install matplotlib "pip install matplotlib" in terminal
-import matplotlib.pyplot as plt
+
 # read by default 1st sheet of an excel file
+
 data = pd.read_csv (r'test2.csv')
 df = pd.DataFrame(data, columns= ['Process','Burst Time','Arrival Time']).to_numpy()
 
 max_data = len(df)          #Maximum of data
 max_process = df
 outside_process = []            #process outside cpu
-for inum in list(max_process):          #Enter an array
+for inum in list(max_process):          #Enter an array 
     outside_process.append(inum)
 outside_process.sort(key=lambda i:i[2])     #fix bug by sort Arrival Time
 
@@ -52,7 +52,7 @@ def avg_process(working_process,finished_program,current_time): #more CPU Utiliz
     for j in range (len(working_process)):              #all time to run process
         all_time_runprocess += working_process[j][1]
     
-    Throughput =  all_time_runprocess / max_data                #Throughput = all time to run process / all process
+    Throughput =  max_data / all_time_runprocess              #Throughput = all time to run process / all process
     CPU_Utilization = (all_time_runprocess / current_time)*100  #CPU Utilization <= 100%
     avg_Waiting_time = avg_Waiting_time / len(finished_program) #avg Waiting time = all waiting time / all process
     avg_Turnaround = avg_Turnaround / len(finished_program)     #avg Turnaround = all Turnaround / all process
@@ -66,6 +66,7 @@ while(succeed_process < max_data):
             if inum[2] <= current_time :
                 interesting_process.append(inum)        # process outside cpu => process inside cpu
                 outside_process.remove(inum)            # remove process outside cpu
+                
     if len(interesting_process) >= 1:                   #check process inside cpu
         longest_burst_time(interesting_process)
         process_suv(succeed_process,current_time,working_process)
@@ -84,7 +85,7 @@ for i in range (len(finished_program)):
     print(finished_program[i][0],"\t|\t",finished_program[i][1],"\t|\t",finished_program[i][2],"\t|\t",finished_program[i][3],"\t|\t",finished_program[i][4],)
     print("----------------------------------------------------------------------")
 print("all time =",current_time,"s.")
-print("Throughput =",Throughput,"s.")
-print("Avg Waiting time =",avg_Waiting_time,"s.")
-print("Avg Turnaround =",avg_Turnaround,"s.")
+print("Throughput =",Throughput,"p/s.")
+print("Avg Waiting time =",avg_Waiting_time,"s/p.")
+print("Avg Turnaround =",avg_Turnaround,"s/p.")
 print("CPU Utilization =",CPU_Utilization ,"%")

@@ -6,7 +6,7 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.filedialog import askopenfile
 #Install matplotlib "pip install matplotlib" in terminal
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 
 root = tk.Tk()
@@ -38,23 +38,23 @@ t2.grid(row=4,column=1,padx=5,sticky="W")
 
 text_alltime = tk.Label(root,text=" all time = ",width=30 )
 text_alltime.grid(row=9,column=0,sticky="W")      
-l_alltime = tk.Label(root,text=' '+ 's.',width=30 )
+l_alltime = tk.Label(root,text='0'+ 's.',width=30 )
 l_alltime.grid(row=9,column=0,sticky="E")
 text_Throughput = tk.Label(root,text=" Throughput = ",width=30 )
 text_Throughput.grid(row=10,column=0,sticky="W") 
-l_Throughput = tk.Label(root,text=' '+ 's/p.',width=30 )
+l_Throughput = tk.Label(root,text='0'+ 's/p.',width=30 )
 l_Throughput.grid(row=10,column=0,sticky="E")
 text_avgwait = tk.Label(root,text="Avg Waiting time = ",width=30 )
 text_avgwait.grid(row=11,column=0,sticky="W") 
-l_avgwait = tk.Label(root,text=' '+'s/p.',width=30 )
+l_avgwait = tk.Label(root,text='0'+'s/p.',width=30 )
 l_avgwait.grid(row=11,column=0,sticky="E")
 text_avgturn = tk.Label(root,text="Avg Turnaround = ",width=30 )
 text_avgturn.grid(row=12,column=0,sticky="W") 
-l_avgturn = tk.Label(root,text=' ' +'s/p.',width=30 )
+l_avgturn = tk.Label(root,text='0' +'s/p.',width=30 )
 l_avgturn.grid(row=12,column=0,sticky="E")
 text_Utilization = tk.Label(root,text="CPU Utilization = ",width=30 )
 text_Utilization.grid(row=13,column=0,sticky="W") 
-l_Utilization = tk.Label(root,text=' ' +'%')
+l_Utilization = tk.Label(root,text='0' +'%')
 l_Utilization.grid(row=13,column=0,sticky="E")
 
 
@@ -135,7 +135,7 @@ def upload_file():
         for j in range (len(working_process)):              #all time to run process
             all_time_runprocess += working_process[j][1]
         
-        Throughput =  all_time_runprocess / max_data                #Throughput = all time to run process / all process
+        Throughput =  max_data /  all_time_runprocess             #Throughput = all time to run process / all process
         CPU_Utilization = (all_time_runprocess / current_time)*100  #CPU Utilization <= 100%
         avg_Waiting_time = avg_Waiting_time / max_data #avg Waiting time = all waiting time / all process
         avg_Turnaround = avg_Turnaround / max_data       #avg Turnaround = all Turnaround / all process
@@ -205,7 +205,7 @@ def upload_file():
 
     def avg_output():
         l_alltime.config(text=str(current_time) + '\ts.')
-        l_Throughput.config(text=str(Throughput) +'\ts/p.')
+        l_Throughput.config(text=str(Throughput) +'\tp/s.')
         l_avgwait.config(text=str(avg_Waiting_time) +'\ts/p.')
         l_avgturn.config(text=str(avg_Turnaround_time) +'\ts/p.')
         l_Utilization.config(text=str(CPU_Utilization) +'\t%')
