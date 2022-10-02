@@ -7,7 +7,6 @@ from tkinter import filedialog
 from tkinter.filedialog import askopenfile
 #Install matplotlib "pip install matplotlib" in terminal
 #import matplotlib.pyplot as plt
-import numpy as np
 
 root = tk.Tk()
 root.geometry("1000x700")
@@ -42,7 +41,7 @@ l_alltime = tk.Label(root,text='0'+ 's.',width=30 )
 l_alltime.grid(row=9,column=0,sticky="E")
 text_Throughput = tk.Label(root,text=" Throughput = ",width=30 )
 text_Throughput.grid(row=10,column=0,sticky="W") 
-l_Throughput = tk.Label(root,text='0'+ 's/p.',width=30 )
+l_Throughput = tk.Label(root,text='0'+ 'p/s.',width=30 )
 l_Throughput.grid(row=10,column=0,sticky="E")
 text_avgwait = tk.Label(root,text="Avg Waiting time = ",width=30 )
 text_avgwait.grid(row=11,column=0,sticky="W") 
