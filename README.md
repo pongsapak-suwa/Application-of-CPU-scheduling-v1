@@ -22,6 +22,7 @@ pip install tk
 - [x]  use import numpy as np install numpy in terminal :<br />
 ```
 pip install numpy
+```
 - [x]  use import matplotlib.pyplot as plt install numpy in terminal :<br />
 ```
 pip install matplotlib
