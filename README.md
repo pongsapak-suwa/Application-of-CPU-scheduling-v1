@@ -11,17 +11,20 @@ Application of CPU scheduling <br />
         Note1: Input will be provided in excel or CSV file forma <br />
 _____________________________________________________________________________<br />
 ______________________________________________________________________________ <br />
-- [x] if use import pandas as pd install pandas in terminal :<br />
+- [x]  use import pandas as pd install pandas in terminal :<br />
 ```
 pip install pandas
 ```
-- [x] if use import tkinter as tk install Tkinter in terminal :<br />
+- [x]  use import tkinter as tk install Tkinter in terminal :<br />
 ```
 pip install tk
 ```
-- [x] if use import numpy as np install numpy in terminal :<br />
+- [x]  use import numpy as np install numpy in terminal :<br />
 ```
 pip install numpy
+- [x]  use import matplotlib.pyplot as plt install numpy in terminal :<br />
+```
+pip install matplotlib
 ```
 
 Ex. main2.py output :<br />
