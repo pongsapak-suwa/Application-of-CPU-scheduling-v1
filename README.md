@@ -51,9 +51,9 @@ ______________________________________________________________________________ <
  * Gantt chart <br />
  > support multi color in <= 50 process ,if process > 50 color = blue #array color = 50 colr <br />
  >Ex. Gantt chart in "cpu_scheduling.py" read file "test.csv" <br />
- ![image](https://user-images.githubusercontent.com/94011063/193577799-81e72507-4922-459a-a973-ae1ba1a94f33.png) <br />
- *Ex. GUI in "cpu_scheduling.py" read file "test.csv" <br />
-  ![image](https://user-images.githubusercontent.com/94011063/193578288-ee81ae00-22b6-4e53-aaf6-9763f8090970.png)<br />
+![image](https://user-images.githubusercontent.com/94011063/193577799-81e72507-4922-459a-a973-ae1ba1a94f33.png) <br />
+*Ex. GUI in "cpu_scheduling.py" read file "test.csv" <br />
+![image](https://user-images.githubusercontent.com/94011063/193579140-fd10fede-a0b6-420d-849d-b19b45ac54b5.png)
 * cpu_scheduling.py read file .csv only<br />
 ______________________________________________________________________________ <br />
 ______________________________________________________________________________ <br />
