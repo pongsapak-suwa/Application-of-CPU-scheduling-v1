@@ -69,7 +69,7 @@ while succeed_process < max_data:
             
 
 
-print("| Process | start time | Exit time ")
+print("| Process | start time | round burst time | Exit time ")
 print("===============================================================")
 for i in range (len(finished_program)):
     print(finished_program[i][0],"\t|\t",finished_program[i][1],"\t|\t",finished_program[i][2],"\t|\t",finished_program[i][3],"\t|\t")
