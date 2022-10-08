@@ -184,8 +184,8 @@ will get this data table file"test3.csv:
 | P1  | 0 | 1 | 1 |
 | P2 | 0 | 1 | 13 |
 | ... | ... | ... | ... |
-<br />
 * Gantt chart  <br />
+
 ![image](https://user-images.githubusercontent.com/94011063/194728806-3285b7b8-d67c-480c-8860-ed3ebc389036.png)  <br />
 
 ---
