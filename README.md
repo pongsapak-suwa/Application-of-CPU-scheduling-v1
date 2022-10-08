@@ -35,28 +35,28 @@ main funtion algorithm :
 ```
 while(succeed_process < max_data):
     if outside_process != []:
-        for inum in list(outside_process):              #check current time with Arrival Time
+        for inum in list(outside_process):         
             if inum[2] <= current_time :
-                interesting_process.append(inum)        # process outside cpu => process inside cpu
-                outside_process.remove(inum)            # remove process outside cpu
+                interesting_process.append(inum)       
+                outside_process.remove(inum)          
                 
-    if len(interesting_process) >= 1:                   #check process inside cpu
+    if len(interesting_process) >= 1:                
         longest_burst_time(interesting_process)
         process_suv(succeed_process,current_time,working_process)
             
         current_time += working_process[succeed_process][1]
         succeed_process += 1
 
-    elif (interesting_process == [])and (outside_process != []): # no process inside cpu and have process outside cpu spare time +1
+    elif (interesting_process == [])and (outside_process != []):
         current_time += 1
 ```
 funtion Check it and pull it out the longest process inside :
 ```
-def longest_burst_time(interesting_process):            #look for Longest process
+def longest_burst_time(interesting_process):        
     if len(interesting_process) > 1 :
-        interesting_process.sort(key=lambda i:i[1])     #sort process if process > 1
+        interesting_process.sort(key=lambda i:i[1])   
     
-    working_process.append(interesting_process.pop())      #pop process very long at process working
+    working_process.append(interesting_process.pop())   
 
     return working_process
 ```
@@ -64,11 +64,11 @@ funtion convert data process :
 ```
 def process_suv(succeed_process,current_time,working_process): #more finished program
     finished_program.append([])
-    finished_program[succeed_process].append(working_process[succeed_process][0]) #name process
-    finished_program[succeed_process].append(current_time)                          #start time = current time
-    finished_program[succeed_process].append(current_time + working_process[succeed_process][1]) #Exit time = current time + Burst Time
-    finished_program[succeed_process].append(finished_program[succeed_process][2]-working_process[succeed_process][2])  #Turnaround = Exit time - Arrival Time
-    finished_program[succeed_process].append(finished_program[succeed_process][3]-working_process[succeed_process][1])  #Waiting time = Turnaround - Burst Time
+    finished_program[succeed_process].append(working_process[succeed_process][0]) 
+    finished_program[succeed_process].append(current_time)                        
+    finished_program[succeed_process].append(current_time + working_process[succeed_process][1])
+    finished_program[succeed_process].append(finished_program[succeed_process][2]-working_process[succeed_process][2]) 
+    finished_program[succeed_process].append(finished_program[succeed_process][3]-working_process[succeed_process][1]) 
         
     return finished_program,working_process
 ```
@@ -80,17 +80,17 @@ def avg_process(working_process,finished_program,current_time): #more CPU Utiliz
     all_time_runprocess = 0
     CPU_Utilization = 0
     Throughput = 0
-    for i in range (len(finished_program)):             #all Turnaround and waiting time
+    for i in range (len(finished_program)):            
         avg_Waiting_time += finished_program[i][4]
         avg_Turnaround += finished_program[i][3] 
 
-    for j in range (len(working_process)):              #all time to run process
+    for j in range (len(working_process)):            
         all_time_runprocess += working_process[j][1]
     
-    Throughput =  max_data / all_time_runprocess              #Throughput = all time to run process / all process
-    CPU_Utilization = (all_time_runprocess / current_time)*100  #CPU Utilization <= 100%
-    avg_Waiting_time = avg_Waiting_time / len(finished_program) #avg Waiting time = all waiting time / all process
-    avg_Turnaround = avg_Turnaround / len(finished_program)     #avg Turnaround = all Turnaround / all process
+    Throughput =  max_data / all_time_runprocess   
+    CPU_Utilization = (all_time_runprocess / current_time)*100 
+    avg_Waiting_time = avg_Waiting_time / len(finished_program) 
+    avg_Turnaround = avg_Turnaround / len(finished_program)   
 
     return avg_Waiting_time,avg_Turnaround,CPU_Utilization,Throughput
 ```
@@ -131,3 +131,58 @@ CPU Utilization = 58.1858407079646 %<br />
 
 ---
 ---
+Then like preemptive Longest Job First?  <br />
+that code will be left main funtion orly (haven't found Turnaround and Waiting time a process yet) :
+```
+while succeed_process < max_data:
+    if outside_process != []:
+        for inum in list(outside_process):              #check current time with Arrival Time
+            if inum[2] <= current_time :
+                interesting_process.append(inum)        # process outside cpu => process inside cpu
+                outside_process.remove(inum)            # remove process outside cpu
+                
+    if len(interesting_process) >= 1:                   #check process inside cpu
+        if len(interesting_process) > 1 :
+            interesting_process.sort(key=lambda i:i[1])  
+
+        for inum in list(interesting_process):             
+            if inum[1] == 0 :
+                interesting_process.remove(inum)  
+                succeed_process += 1
+
+        working_process.append(interesting_process.pop())
+
+        if len(working_process) == 1:
+            if finished_program == [] or working_process[0][0] != finished_program[-1][0]:
+                round+=1
+                finished_program.append([])
+                finished_program[round].append(working_process[0][0]) 
+                finished_program[round].append(current_time)
+                finished_program[round].append(1)
+                finished_program[round].append(current_time + 1) 
+                working_process[0][1] -= 1
+            else:
+                finished_program[round][3] += 1 
+                finished_program[round][2] += 1 
+                working_process[0][1] -= 1
+            current_time += 1
+
+        if working_process[0][1] == 0:
+                succeed_process += 1
+                working_process.pop()
+        else:
+            interesting_process.append(working_process.pop())
+
+    else: 
+        current_time += 1
+```
+---
+will get this data table file"test3.csv:
+| Process | start time | round burst time | Exit time |
+|:---:|:----:|:---:|:---:|
+| P1  | 0 | 1 | 1 |
+| P2 | 0 | 1 | 13 |
+| ... | ... | ... | ... |
+<br />
+* Gantt chart <br />
+ ![image](https://user-images.githubusercontent.com/94011063/194728572-9936443b-77ba-40cc-b3b7-f1e4fbffe2ae.png)
