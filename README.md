@@ -178,7 +178,7 @@ while succeed_process < max_data:
         current_time += 1
 ```
 ---
-will get this data table file"test3.csv:
+will get this data table file "test3.csv":
 | Process | start time | round burst time | Exit time |
 |:---:|:----:|:---:|:---:|
 | P1  | 0 | 1 | 1 |
