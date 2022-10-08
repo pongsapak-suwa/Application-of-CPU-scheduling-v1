@@ -94,6 +94,7 @@ def avg_process(working_process,finished_program,current_time): #more CPU Utiliz
 
     return avg_Waiting_time,avg_Turnaround,CPU_Utilization,Throughput
 ```
+---
 before read file "test2.csv":
 | Process | Burst Time | Arrival Time |
 |:---:|:----:|:---:|
