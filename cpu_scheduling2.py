@@ -219,8 +219,7 @@ def upload_file():
 
         fig, gnt = plt.subplots()
         len_maxp = len(finished_program)*5
-        #support color in <= 50 process ,if process > 50 color = blue
-
+        
         gnt.set_xlabel('seconds ')
         gnt.set_ylabel('Processor')
         gnt.set_ylim(0, len_maxp)
