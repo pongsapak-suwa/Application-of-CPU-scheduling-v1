@@ -130,8 +130,8 @@ CPU Utilization = 58.1858407079646 %<br />
 <br />
 
 ---
----
-Then like preemptive Longest Job First?  <br />
+
+# Then like preemptive Longest Job First?  <br />
 that code will be left main funtion orly (haven't found Turnaround and Waiting time a process yet) :
 ```
 while succeed_process < max_data:
@@ -185,5 +185,6 @@ will get this data table file"test3.csv:
 | ... | ... | ... | ... |
 <br />
 * Gantt chart  <br />
-![image](https://user-images.githubusercontent.com/94011063/194728596-7f1eec76-f408-4fd0-b414-3da88c1e07d8.png) 
+![image](https://user-images.githubusercontent.com/94011063/194728596-7f1eec76-f408-4fd0-b414-3da88c1e07d8.png)  <br />
+
 ---
