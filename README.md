@@ -185,6 +185,6 @@ will get this data table file"test3.csv:
 | ... | ... | ... | ... |
 <br />
 * Gantt chart  <br />
-![image](https://user-images.githubusercontent.com/94011063/194728596-7f1eec76-f408-4fd0-b414-3da88c1e07d8.png)  <br />
+![image](https://user-images.githubusercontent.com/94011063/194728806-3285b7b8-d67c-480c-8860-ed3ebc389036.png)  <br />
 
 ---
