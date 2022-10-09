@@ -123,8 +123,10 @@ CPU Utilization = 58.1858407079646 %<br />
 
  * Gantt chart <br />
  > support multi color in <= 50 process ,if process > 50 color = blue #array color = 50 colr <br />
- > if you don't want the color see file "cpu_scheduling2.py" <br />
-Code show gantt chart "cpu_scheduling2.py" (no multi color):
+ > if you don't want the color see file "cpu_scheduling2.py"  <br />
+  <br />
+Code show gantt chart "cpu_scheduling2.py" (no multi color) :
+
 ```
 name_pro = []
 num_y =[]
