@@ -121,10 +121,42 @@ CPU Utilization = 58.1858407079646 %<br />
 
 ---
 
- * Gantt chart "cpu_scheduling.py" read file "test.csv"<br />
+ * Gantt chart <br />
  > support multi color in <= 50 process ,if process > 50 color = blue #array color = 50 colr <br />
- > if you don't want the color see file "cpu_scheduling2.py" 
+ > if you don't want the color see file "cpu_scheduling2.py" <br />
+Code show gantt chart "cpu_scheduling2.py" (no multi color):
+```
+name_pro = []
+num_y =[]
 
+fig, gnt = plt.subplots()
+len_maxp = len(finished_program)*5
+
+gnt.set_xlabel('seconds ')
+gnt.set_ylabel('Processor')
+gnt.set_ylim(0, len_maxp)
+gnt.set_xlim(0, current_time)
+name_pro.append([])
+num_y.append([])
+yx = 2.5
+for i in range (len(finished_program)):
+    name_pro[0].append(finished_program[i][0])
+for i in range (len(finished_program)):
+    num_y[0].append(yx)
+    yx += 5
+
+gnt.set_yticks(num_y[0])
+gnt.set_yticklabels(name_pro[0])
+gnt.grid(True)
+
+add_y = 0
+for i in range (len(finished_program)):
+    gnt.broken_barh([(finished_program[i][1], working_process[i][1])],(add_y, 5))
+    add_y += 5
+
+plt.show()
+```
+* Ex gantt chart "cpu_scheduling.py" read file "test.csv" :
 ![image](https://user-images.githubusercontent.com/94011063/193577799-81e72507-4922-459a-a973-ae1ba1a94f33.png) 
 * Ex. GUI  <br />
 ![image](https://user-images.githubusercontent.com/94011063/193579140-fd10fede-a0b6-420d-849d-b19b45ac54b5.png)
