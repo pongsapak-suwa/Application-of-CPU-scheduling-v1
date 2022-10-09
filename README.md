@@ -216,7 +216,7 @@ will get this data table file "test3.csv":
 | Process | start time | round burst time | Exit time |
 |:---:|:----:|:---:|:---:|
 | P1  | 0 | 1 | 1 |
-| P2 | 0 | 1 | 13 |
+| P2 | 0 | 12 | 13 |
 | ... | ... | ... | ... |
 * Gantt chart  <br />
 
