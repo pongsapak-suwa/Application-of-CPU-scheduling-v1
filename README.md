@@ -1,6 +1,7 @@
 # Application-of-CPU-scheduling-v1
-Application of CPU scheduling <br />
- * Non-preemptive Longest Job First <br />
+- [x] Non-preemptive Longest Job First <br />
+- [x] Preemptive Longest Job First <br />
+- [x] RR ( Round Robin ) 
 ---
 >Comput
 > * CPU utilization, <br />
@@ -29,8 +30,8 @@ pip install numpy
 pip install matplotlib
 ```
 
-Ex. main2.py output :<br />
----
+--- 
+# Non-preemptive Longest Job First <br />
 main funtion algorithm :
 ```
 while(succeed_process < max_data):
@@ -95,6 +96,7 @@ def avg_process(working_process,finished_program,current_time): #more CPU Utiliz
     return avg_Waiting_time,avg_Turnaround,CPU_Utilization,Throughput
 ```
 ---
+Ex. main2.py output :<br />
 before read file "test2.csv":
 | Process | Burst Time | Arrival Time |
 |:---:|:----:|:---:|
@@ -119,12 +121,12 @@ CPU Utilization = 58.1858407079646 %<br />
 
 ---
 
- * Gantt chart <br />
+ * Gantt chart "cpu_scheduling.py" read file "test.csv"<br />
  > support multi color in <= 50 process ,if process > 50 color = blue #array color = 50 colr <br />
- > if you don't want the color see file "cpu_scheduling2.py" <br />
- >Ex. Gantt chart in "cpu_scheduling.py" read file "test.csv" <br />
-![image](https://user-images.githubusercontent.com/94011063/193577799-81e72507-4922-459a-a973-ae1ba1a94f33.png) <br />
-*Ex. GUI in "cpu_scheduling.py" read file "test.csv" <br />
+ > if you don't want the color see file "cpu_scheduling2.py" 
+
+![image](https://user-images.githubusercontent.com/94011063/193577799-81e72507-4922-459a-a973-ae1ba1a94f33.png) 
+* Ex. GUI  <br />
 ![image](https://user-images.githubusercontent.com/94011063/193579140-fd10fede-a0b6-420d-849d-b19b45ac54b5.png)
 * cpu_scheduling.py read file .csv only<br />
 <br />
@@ -187,5 +189,67 @@ will get this data table file "test3.csv":
 * Gantt chart  <br />
 
 ![image](https://user-images.githubusercontent.com/94011063/194728806-3285b7b8-d67c-480c-8860-ed3ebc389036.png)  <br />
+
+---
+
+# and last RR ( Round Robin ) <br />
+same code to preemptive will be left main funtion orly (haven't found Turnaround and Waiting time a process yet) :
+```
+while succeed_process < max_data:
+    if outside_process != []:
+        for inum in list(outside_process):              #check current time with Arrival Time
+            if inum[2] <= current_time :
+                interesting_process.append(inum)        # process outside cpu => process inside cpu
+                outside_process.remove(inum)            # remove process outside cpu
+                
+    if stay_process != []:
+        for punm in list(stay_process):
+            interesting_process.append(punm)
+            stay_process.remove(punm)
+
+    if len(interesting_process) >= 1:                   
+        while interesting_process != []:
+            working_process.append(interesting_process.pop(0))
+
+        for i in range(len(working_process)):
+            round += 1
+            if working_process[i][1] >= rr :
+                finished_program.append([])
+                finished_program[round].append(working_process[i][0])
+                finished_program[round].append(current_time)
+                finished_program[round].append(rr)
+                finished_program[round].append(current_time + rr)
+                working_process[i][1] -= rr
+                current_time += rr
+            else: 
+                finished_program.append([])
+                finished_program[round].append( working_process[i][0])
+                finished_program[round].append(current_time)
+                finished_program[round].append( working_process[i][1])
+                finished_program[round].append(current_time +  working_process[i][1])
+                current_time += working_process[i][1]
+                working_process[i][1] = 0
+
+        for p in list(working_process):
+            if p[1] == 0 :
+                working_process.remove(p)
+                succeed_process += 1
+            else:
+                stay_process.append(p)
+                working_process.remove(p)
+
+    elif interesting_process == [] and outside_process != [] and stay_process != []: 
+        current_time += 1
+```
+---
+and will get this data table file "test3.csv" and RR = 5:
+| Process | start time | round burst time | Exit time |
+|:---:|:----:|:---:|:---:|
+| P1  | 0 | 5 | 5 |
+| P2 | 5 | 5 | 10 |
+| ... | ... | ... | ... |
+* Gantt chart  <br />
+
+![image](https://user-images.githubusercontent.com/94011063/194737666-a5a08722-bf7b-438d-a13a-7fc129bf18b8.png)  <br />
 
 ---
