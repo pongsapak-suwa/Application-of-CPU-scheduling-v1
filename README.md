@@ -1,7 +1,7 @@
 # Application-of-CPU-scheduling-v1
-- [x] Non-preemptive Longest Job First <br />
-- [x] Preemptive Longest Job First <br />
-- [x] RR ( Round Robin ) 
+- [x] [Non-preemptive Longest Job First](#Non-preemptive-Longest-Job-First) <br />
+- [x] [Preemptive Longest Job First](#Then-like-preemptive-Longest-Job-First?) <br />
+- [x] [RR ( Round Robin ) ](#and-last-RR-(-Round-Robin-))
 ---
 >Comput
 > * CPU utilization, <br />
