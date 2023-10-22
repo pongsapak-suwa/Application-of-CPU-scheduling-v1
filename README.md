@@ -13,19 +13,19 @@
         Note1: Input will be provided in excel or CSV file forma <br />
 ---
 ---
-- [x]  use import pandas as pd install pandas in terminal :<br />
+*  import pandas as pd install pandas in terminal :<br />
 ```
 pip install pandas
 ```
-- [x]  use import tkinter as tk install Tkinter in terminal :<br />
+*  import tkinter as tk install Tkinter in terminal :<br />
 ```
 pip install tk
 ```
-- [x]  use import numpy as np install numpy in terminal :<br />
+*  import numpy as np install numpy in terminal :<br />
 ```
 pip install numpy
 ```
-- [x]  use import matplotlib.pyplot as plt install numpy in terminal :<br />
+*  import matplotlib.pyplot as plt install numpy in terminal :<br />
 ```
 pip install matplotlib
 ```
